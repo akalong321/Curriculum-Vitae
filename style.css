@@ -138,5 +138,54 @@ body{
     grid-template-columns: 1fr 1fr; /* Chia làm 2 cột bằng nhau */
     gap: 20px; /* Khoảng cách giữa các mục */
 }
+/* Style cho nút Dark Mode */
+.nut-bam{
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #333;
+    color: white;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+.nut-bam:hover{
+    background-color: #555;
+}
 
+/* --- ĐỊNH NGHĨA DARK MODE --- */
+
+/* 1. Khi <body> CÓ class 'dark-mode',
+      hãy đổi nền thành màu đen */
+      body.dark-mode{
+        background-color: #121212;
+      }
+      /* 2. Khi .cv-container CÓ class 'dark-mode',
+      hãy đổi nền và màu chữ của nó */
+      .cv-container.dark-mode{
+        background-color: #222; /* Nền đen-xám */
+        color: #e0e0e0;/* Chữ màu xám nhạt */
+        box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1); /* Đổi bóng thành màu sáng */
+      }
+      /* 3. Sửa lại các thành phần con BÊN TRONG dark-mode */
+      .cv-container.dark-mode .header h1,
+      .cv-container.dark-mode .contact i{
+        color: #ffffff; /* Chữ tiêu đề và icon thành màu trắng */
+      }
+      .cv-container.dark-mode .header p{
+        color: #ccc;
+      }
+      .cv-container.dark-mode .sidebar{
+        background-color: #2a2a2a;
+        border-right: 1px solid #444;
+      }
+      .cv-container.dark-mode .skills .skill-list li{
+        background-color: #444; /* Nền "viên thuốc" */
+      }
+      .cv-container.dark-mode .project-item{
+        background-color: #333;
+        border-color: #555;
+        box-shadow:  0 2px 5px rgba(0,0,0,0.2);
+      }
 
