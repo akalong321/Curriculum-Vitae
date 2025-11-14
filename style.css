@@ -3,7 +3,7 @@
 
 /* 1. Reset cơ bản & thiết lập font chữ chung*/
 body{
-    font-family:Arial, Helvetica, sans-serif; /* font chữ dễ đọc */
+    font-family: 'Roboto', sans-serif; /* <-- "Giọng nói" mới! */
     background-color: #f4f4f4;/* Màu nền xám nhạt cho toàn trang */
     margin:0;
     padding:0;
@@ -15,7 +15,7 @@ body{
     margin: 30px auto; /* Đây là "thần chú" CĂN GIỮA: 30px trên-dưới, auto trái-phải */
     background-color: #ffffff; /*Nền trắng cho CV */
     border-radius: 8px; /* Bo góc cho đẹp (Box Model) */
-    box-shadow: 0 4px 1-px rgba(0,0,0,0.1); /* Đổ bóng mờ cho nổi khối */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Đổ bóng mờ cho nổi khối */
 }
 /* 3. Style cho Header (Element + Class Selector) */
 .header{
@@ -52,7 +52,7 @@ body{
 .sidebar{
     width: 40%; /* Cột trái chiếm 40% chiều rộng */
     background-color: #fafafa; /* Cho cột trái màu nền hơi khác */
-    padding: 20p;
+    padding: 20px;
     border-right:  1px solid #eee;
 }
 .content{
@@ -69,11 +69,34 @@ body{
     padding: 8px 12px;
     margin-bottom: 8px;
     border-radius: 5px; /* Tạo các "viên thuốc" kỹ năng */
+    /* Thêm*/
+    transition: background-color 0.3s ease;
 }
-.project-item{
-    margin-bottom: 20px; /* Tạo khoảng cách giữa các dự án */
+/* UPDATE THÊM CODE MỚI */
+
+
+.skills .skill-list li:hover{
+    background-color: #777; /* Đổi nền thành màu xám đậm */
+    color: #ffffff; /* Đổi chữ thành màu trắng */
+    cursor: pointer; /* Biến con trỏ chuột thành hình bàn tay */
 }
 
+
+/* Thêm dòng này để hiệu ứng chuyển màu MƯỢT HƠN trong 0.3 giây */
+.project-item{
+    background-color: #ffffff; /* Nền trắng */
+    border: 1px solid #eee; /* Viền xám nhạt */
+    border-radius: 8px; /* Bo góc */
+    padding: 20px; /* Đệm bên trong */
+    margin-bottom: 20px; /* Cách nhau 20px */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Đổ bóng nhẹ */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Hiệu ứng mượt */
+}
+.project-item:hover{
+    transform: translateY(-5px); /* Nâng lên 5px khi hover */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* Đổ bóng đậm hơn */
+    cursor: pointer; /* Biến con trỏ chuột thành hình bàn tay */
+}
 
 /* GIAI ĐOẠN 4: "BiẾN HÌNH" (Responsive)*/
 
@@ -102,7 +125,18 @@ body{
     .header h1{
         font-size: 24px;
     }
-
+    .project-grid{
+        grid-template-columns: 1fr; /* Chuyển sang 1 cột duy nhất */
+    }
+}
+.contact i{
+    margin-right: 8px; /* Đẩy chữ ra xa icon 8px */
+    color: #333; /* Cho icon màu xanh  */
+}
+.project-grid{
+    display: grid; /* Kích hoạt CSS Grid */
+    grid-template-columns: 1fr 1fr; /* Chia làm 2 cột bằng nhau */
+    gap: 20px; /* Khoảng cách giữa các mục */
 }
 
 
