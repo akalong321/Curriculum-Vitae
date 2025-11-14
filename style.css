@@ -1,0 +1,108 @@
+/* GIAI ĐOẠN 2: "MẶC ÁO" CHO CÁI HỘP (Box Model & Selectors) */
+
+
+/* 1. Reset cơ bản & thiết lập font chữ chung*/
+body{
+    font-family:Arial, Helvetica, sans-serif; /* font chữ dễ đọc */
+    background-color: #f4f4f4;/* Màu nền xám nhạt cho toàn trang */
+    margin:0;
+    padding:0;
+}
+/* 2. Style cho cái hộp CV chính (Class Selector) */
+.cv-container{
+    width:900px; /* Cố định chiều rộng của CV là 900px */
+    max-width: 90%; /* Nhưng nếu màn hình nhỏ hơn 900px, nó sẽ chỉ chiếm 90% */
+    margin: 30px auto; /* Đây là "thần chú" CĂN GIỮA: 30px trên-dưới, auto trái-phải */
+    background-color: #ffffff; /*Nền trắng cho CV */
+    border-radius: 8px; /* Bo góc cho đẹp (Box Model) */
+    box-shadow: 0 4px 1-px rgba(0,0,0,0.1); /* Đổ bóng mờ cho nổi khối */
+}
+/* 3. Style cho Header (Element + Class Selector) */
+.header{
+    text-align: center; /* Căn giữa chữ và ảnh bên trong */
+    padding: 30px; /* Đệm 30px bên trong (Box Model) */
+    border-bottom: 2px solid #eee; /* Tạo đường kẻ ngang */
+}
+.avatar{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%; /* "Thần chú" biến ảnh vuông thành TRÒN */
+    border: 5px solid #fff; /* Tạo viền trắng quanh ảnh */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.header h1{
+    margin: 10px 0 5px 0; /* Giảm margin mặc định của h1 */
+    color:#333;
+}
+.header p{
+    margin: 0;
+    color: #777;
+    font-style: italic;
+}
+
+
+/* GIAI ĐOẠN 3: "XẾP GẠCH" - BỐ CỤC 2 CỘT (Flexbox) */
+
+
+/* kích hoạt FLEXBOX cho hộp CHA */
+.main-content{
+    display:flex; /* BÙM! :)) .sidebar và .content sẽ tự động nằm ngang */
+}
+/* 2. Thiết lập kích thước cho 2 cột CON */
+.sidebar{
+    width: 40%; /* Cột trái chiếm 40% chiều rộng */
+    background-color: #fafafa; /* Cho cột trái màu nền hơi khác */
+    padding: 20p;
+    border-right:  1px solid #eee;
+}
+.content{
+    width: 60%; /* Cột phải chiếm 60% còn lại */
+    padding: 20px;
+}
+/* 3. Làm đẹp các phần bên trong */
+.skills .skill-list{
+    list-style: none ; /* Xóa dấu chấm tròn của thẻ <li> */
+    padding: 0;
+}
+.skills .skill-list li{
+    background-color: #e0e0e0;
+    padding: 8px 12px;
+    margin-bottom: 8px;
+    border-radius: 5px; /* Tạo các "viên thuốc" kỹ năng */
+}
+.project-item{
+    margin-bottom: 20px; /* Tạo khoảng cách giữa các dự án */
+}
+
+
+/* GIAI ĐOẠN 4: "BiẾN HÌNH" (Responsive)*/
+
+
+/* "Thần chú": Nếu màn hình rộng TỐI ĐA 768px (tức là tablet/điện thoại) */
+@media(max-width: 768px) {
+
+    /* 1. Bẻ gãy Flexbox */
+    .main-content{
+        flex-direction: column; /* Đổi từ xếp ngang (row) thành xếp DỌC (column) */
+    }
+
+    /* 2. Cho 2 cột chiếm 100% chiều rộng */
+    .sidebar,
+    .content{
+        width: 100%; /* Chiếm toàn bộ chiều rộng */
+        padding: 15px; /* Giảm padding một chút cho đỡ tốn diện tích */
+        box-sizing: border-box; /* Quan trọng: để padding không làm vỡ layout */
+        border-right: none; /* Bỏ đường viền bên phải của sidebar */
+        border-bottom: 1px solid #eee;
+    }
+    .avatar{
+        width: 100px; /* Thu nhỏ avatar lại */
+        height: 100px;
+    }
+    .header h1{
+        font-size: 24px;
+    }
+
+}
+
+
